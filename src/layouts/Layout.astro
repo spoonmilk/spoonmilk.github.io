@@ -1,22 +1,18 @@
-<!doctype html>
+---
+import "../styles/global.css";
+const { pageTitle } = Astro.props;
+---
+
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
+		<h1>{pageTitle}</h1>
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
