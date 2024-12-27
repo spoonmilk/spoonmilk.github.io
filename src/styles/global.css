@@ -32,7 +32,6 @@ h5,
 h6 {
     font-weight: 700;
     text-align: center;
-    /* Bold headings */
     margin: 0 auto;
 }
 
@@ -80,6 +79,5 @@ ol {
 .center {
     margin: auto;
     width: 50%;
-    border: 3px solid black;
     padding: 10px;
 }
