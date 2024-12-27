@@ -1,13 +1,8 @@
-/* Import the Commit Mono font */
 @font-face {
     font-family: 'Commit Mono';
     src: url('/fonts/CommitMonoVariableFont.woff2') format('woff2');
     font-weight: 100 900;
-
-    /* Full range of weights */
     font-stretch: 75% 125%;
-
-    /* Optional width range */
     font-style: normal;
 }
 
