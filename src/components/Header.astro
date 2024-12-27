@@ -1,45 +1,11 @@
 ---
 const { username, name } = Astro.props;
+import Navigation from "./Navigation.astro";
 ---
 
-<style>
-    .mono_table {
-        border-collapse: collapse;
-        width: 100%;
-        max-width: 600px;
-        background-color: #000;
-        color: #0f0;
-        margin: 20px auto;
-        box-shadow: 0 0 10px #0f0;
-    }
-
-    .retro-table th,
-    .retro-table td {
-        border: 1px solid #0f0;
-        padding: 10px;
-        text-align: left;
-    }
-
-    .retro-table th {
-        background-color: #003300; /* Darker green background for header */
-    }
-</style>
-
-<header>
-    <table class="mono_table">
-        <thead>
-            <tr>Alexander</tr>
-            <tr>Khosrowshahi</tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Username</td>
-                <td>{username}</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>{name}</td>
-            </tr>
-        </tbody>
-    </table>
+<header class="w-full bg-gray-100 text-sm font-mono">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center p-4">
+        <!-- Navigation Menu -->
+        <Navigation />
+    </div>
 </header>
