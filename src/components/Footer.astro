@@ -1,17 +1,17 @@
 ---
-
+const links = [
+    { href: "https://www.github.com/spoonmilk", platform: "#11 GitHub" },
+    {
+        href: "https://www.linkedin.com/in/alexander-khosrowshahi-17a909298/",
+        platform: "#12 LinkedIn",
+    },
+];
 ---
 
 <footer>
     <div class="footer-container flex justify-between items-center p-4">
         <nav>
-            <a href=`https://www.github.com/spoonmilk` target="_blank"
-                >#11 GitHub</a
-            >
-            <a
-                href="https://www.linkedin.com/in/alexander-khosrowshahi-17a909298/"
-                target="_blank">#12 LinkedIn</a
-            >
+            {links.map((link) => <a href={link.href}>{link.platform}</a>)}
         </nav>
     </div>
 </footer>

@@ -1,29 +1,15 @@
 ---
-
+const links = [
+    { href: "/", label: "#01 Home" },
+    { href: "/about/", label: "#02 About" },
+    { href: "/wip/", label: "#03 Projects" },
+    { href: "/wip/", label: "#04 Blog" },
+    { href: "/wip/", label: "#05 Curiosities" },
+];
 ---
 
 <div class="nav-links">
     <nav>
-        <a href="/">#01 Home </a>
-        <a href="/about/">#02 About </a>
-        <a href="/wip/">#03 Projects </a>
-        <a href="/wip/">#04 Blog </a>
-        <a href="/wip/">#05 Curiosities</a>
+        {links.map((link) => <a href={link.href}>{link.label}</a>)}
     </nav>
 </div>
-
-<style>
-    nav {
-        display: flex;
-        gap: 1.5rem;
-        flex-wrap: nowrap;
-        white-space: nowrap;
-    }
-
-    .nav-links {
-        overflow-x: auto;
-        display: block;
-        padding-bottom: 0.5rem;
-        scrollbar-width: none;
-    }
-</style>
