@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import "../styles/glitch.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 const { pageTitle } = Astro.props;
@@ -18,7 +17,7 @@ const { pageTitle } = Astro.props;
 			<div class="container">
 				<Header />
 				<div class="center">
-					<h1 class="glitch-text" data-text={pageTitle}>
+					<h1>
 						{pageTitle}
 					</h1>
 					<slot />

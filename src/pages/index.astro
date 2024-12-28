@@ -1,12 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import InlineMarkdown from "../components/InlineMarkdown";
 ---
 
 <Layout pageTitle="Alex Khosrowshahi">
 	<p>
 		This is the personal website of Alex Khosrowshahi, a second-year
 		Computer Science/Physics student at Brown University. On most tech
-		sites, I go by the username spoonmilk.
+		sites, I go by the username <InlineMarkdown
+			client:load
+			text="spoonmilk"
+			markdown="<h3>Why Spoonmilk?</h3>A name I made as a joke in a middle-school relationship, somehow stuck."
+		/>
 	</p>
 	<p>
 		<a href="mailto:alexander_khosrowshahi@brown.edu?">Reach me by email</a>

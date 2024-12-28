@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import InlineMarkdown from "../components/InlineMarkdown.jsx";
+const learningMd: { title: string; body: string } = {
+	title: "teaching myself",
+	body: "<h3>What's Alex Learning? (Updated 12/28/2024)</h3> currently, I am re-teaching myself some concepts from multivariable calculus, trying to obtain a HAM radio license, and learning about lattice-based cryptography.",
+};
 ---
 
 <Layout pageTitle="About Alex">
@@ -22,18 +26,11 @@ import InlineMarkdown from "../components/InlineMarkdown.jsx";
 	</p>
 	<p>
 		Recreational learning is a large part of who I am, so I tend to always
-		be teaching myself something in my free time. Currently (updated
-		12/27/2024), I am re-teaching myself some concepts from multivariable
-		calculus, trying to obtain a HAM radio license, and learning about
-		lattice-based cryptography.
-	</p>
-	<p>
-		This is a paragraph with
-		<InlineMarkdown
+		be <InlineMarkdown
 			client:load
-			text="highlighted text"
-			markdown="<h3>Markdown Content</h3><p>This is some <strong>markdown</strong> content.</p>"
-		/>
-		inline.
+			text={learningMd.title}
+			markdown={learningMd.body}
+		/> something in my free time.
 	</p>
 </Layout>
+
