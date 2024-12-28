@@ -3,13 +3,16 @@
 ---
 
 <footer>
-    <div class="max-w-screen-xl mx-auto flex justify-between items-center p-4">
-        <a href=`https://www.github.com/spoonmilk` target="_blank">#11 GitHub</a
-        >
-        <a
-            href="https://www.linkedin.com/in/alexander-khosrowshahi-17a909298/"
-            target="_blank">#12 LinkedIn</a
-        >
+    <div class="footer-container flex justify-between items-center p-4">
+        <nav>
+            <a href=`https://www.github.com/spoonmilk` target="_blank"
+                >#11 GitHub</a
+            >
+            <a
+                href="https://www.linkedin.com/in/alexander-khosrowshahi-17a909298/"
+                target="_blank">#12 LinkedIn</a
+            >
+        </nav>
     </div>
 </footer>
 
@@ -24,5 +27,19 @@
         width: 100%;
         background-color: #c0c0c0;
         z-index: 20;
+    }
+
+    nav {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+    }
+
+    .nav-links {
+        overflow-x: auto;
+        display: block;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
     }
 </style>
