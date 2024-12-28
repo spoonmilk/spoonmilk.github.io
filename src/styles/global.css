@@ -129,12 +129,12 @@ body::before {
     width: 200%;
     height: 200%;
     pointer-events: none;
-    background: url('/grain-texture.jpg') repeat;
-    background-size: contain;
+    background: url('/nnnoise.svg') repeat;
+    background-size: 200px 200px;
     mix-blend-mode: multiply;
     animation: grain 1s steps(10) infinite;
     z-index: 100;
-    opacity: 0.1;
+    opacity: 0.9;
 }
 
 /* Keyframe animation for grain effect */
