@@ -3,9 +3,8 @@ const { username, name } = Astro.props;
 import Navigation from "./Navigation.astro";
 ---
 
-<header class="w-full bg-[#c0c0c0] text-sm font-mono">
-    <div class="max-w-screen-xl mx-auto flex justify-between items-center p-4">
-        <!-- Navigation Menu -->
+<header class="w-full bg-[#c0c0c0] text-sm overflow-x">
+    <div class="header-container flex justify-between items-center p-4">
         <Navigation />
     </div>
 </header>

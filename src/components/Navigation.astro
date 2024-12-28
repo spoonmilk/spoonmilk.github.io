@@ -15,10 +15,15 @@
 <style>
     nav {
         display: flex;
-        gap: 1.5rem; /* Add spacing between links */
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+        white-space: nowrap;
     }
 
     .nav-links {
+        overflow-x: auto;
+        display: block;
         padding-bottom: 0.5rem;
+        scrollbar-width: none;
     }
 </style>

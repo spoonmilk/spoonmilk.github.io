@@ -42,9 +42,7 @@ code,
 pre {
     font-family: 'Commit Mono', monospace;
     font-weight: 400;
-    background-color: #c0c0c0;
-
-    /* Slightly darker gray background */
+    background-color: #e0e0e0;
     padding: 0.25em 0.5em;
     border-radius: 4px;
 }
