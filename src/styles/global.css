@@ -90,17 +90,7 @@ nav {
 }
 
 
-canvas#grain-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 40;
-    opacity: 0.3;
-    filter: contrast(1.2) brightness(0.9) saturate(1.1);
-}
+
 
 /* Main Content */
 .content {
@@ -121,21 +111,6 @@ body {
     position: relative;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    pointer-events: none;
-    background: url('/nnnoise.svg') repeat;
-    background-size: 200px 200px;
-    mix-blend-mode: multiply;
-    animation: grain 1s steps(10) infinite;
-    z-index: 100;
-    opacity: 0.9;
-}
 
 /* Keyframe animation for grain effect */
 @keyframes grain {
