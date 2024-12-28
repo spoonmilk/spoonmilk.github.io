@@ -69,6 +69,32 @@ ol {
     box-sizing: border-box
 }
 
+footer {
+    position: fixed;
+    display: flex;
+    gap: 1.5rem;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    width: 100%;
+    background-color: #c0c0c0;
+    z-index: 20;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.nav-links {
+    overflow-x: auto;
+    display: block;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+}
+
 .center {
     margin: auto;
     width: 50%;
