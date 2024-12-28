@@ -13,13 +13,16 @@ const { pageTitle } = Astro.props;
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<div class="container">
-			<Header />
-			<div class="center">
-				<h1>{pageTitle}</h1>
-				<slot />
+		<div class="grain-effect">
+			<!-- Main Content -->
+			<div class="container">
+				<Header />
+				<div class="center">
+					<h1>{pageTitle}</h1>
+					<slot />
+				</div>
+				<Footer />
 			</div>
-			<Footer />
 		</div>
 	</body>
 </html>
