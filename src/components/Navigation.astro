@@ -6,10 +6,28 @@ const links = [
     { href: "/wip/", label: "#04 Blog" },
     { href: "/wip/", label: "#05 Curiosities" },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <div class="nav-links">
     <nav>
-        {links.map((link) => <a href={link.href}>{link.label}</a>)}
+        {
+            links.map((link) => (
+                <a
+                    href={link.href}
+                    class={currentPath === link.href ? "active" : ""}
+                >
+                    {link.label}
+                </a>
+            ))
+        }
     </nav>
 </div>
+
+<style>
+    a.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
