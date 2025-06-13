@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import InlineMarkdown from "../components/InlineMarkdown.jsx";
 const learningMd: { title: string; body: string } = {
 	title: "teaching myself",
-	body: "<h3>What's Alex Learning? (Updated 5/26/2025)</h3> currently, I am (still) trying to obtain a HAM radio license, practicing bluegrass rhythm guitar, and learning QT at Vector 35!",
+	body: "<h3>What's Alex Learning? (Updated 5/26/2025)</h3> Currently, I am (still) trying to obtain a HAM radio license, practicing bluegrass rhythm guitar, and learning lots about static analysis at Vector 35!",
 };
 ---
 
@@ -11,17 +11,17 @@ const learningMd: { title: string; body: string } = {
 	<p>
 		I am a rising Junior at Brown University studying Computer Science and (tentatively) physics.
 		My chief interests are in low-level systems, physical simulation, protecting creators in the age of mass data harvesting, 
-		and all things esoteric. As of May 28th, 2025, I am also an intern at Vector 35 working on Binary Ninja! Wee!
+		and all things esoteric. As of May 28th, 2025, I am also an intern at Vector 35 working on <a href="https://binary.ninja/" target="_blank", rel="noopener noreferrer">Binary Ninja!</a>
 	</p>
 	<p>
-		In my free time, I play music (guitar, bass, sing),
+		In my free time, I play music (guitar, bass, singing),
 		draw/paint (favorite medium is graphite, favorite subject is people in
-		coffee shops), read and write about what I read, and play story-driven
+		coffee shops), half-finish novels, and play story-driven
 		video games.
 	</p>
 	<p>
-		Recreational learning is a large part of who I am, so I tend to always
-		be <InlineMarkdown
+		Recreational learning is a large part of who I am, so I'm usually
+		<InlineMarkdown
 			client:load
 			text={learningMd.title}
 			markdown={learningMd.body}

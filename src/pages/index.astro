@@ -1,13 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import curlsImg from "../images/curls.png"
 import InlineMarkdown from "../components/InlineMarkdown";
 ---
 
 <Layout pageTitle="Alex Khosrowshahi">
-	<img src="/curls.png" alt="A very mixed up collage of Alex as a small child", width="500" class="center">
+	<img src={curlsImg.src} alt="A very mixed up collage of Alex as a small child" width="400"class="center"/>
 	<p>
 		This is the personal website of Alex Khosrowshahi, a second-year
-		Computer Science/Physics student at Brown University. On most tech
+		Computer Science/Physics student at Brown University. On most tech-related
 		sites, I go by the username <InlineMarkdown
 			client:load
 			text="spoonmilk"
