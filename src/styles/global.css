@@ -1,0 +1,84 @@
+:root {
+    --font-color: #333;
+    --background-color: #E3DBDB;
+    --link-color: #06c;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  font-family: 'Commit Mono', Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem auto;
+  align-self: center;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0.5rem auto;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--link-color);
+}
+
+a:hover {
+  border-bottom-style: solid;
+}
+
+code,
+pre {
+  font-family: 'Commit Mono', Courier, monospace;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--link-color);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--font-color);
+  opacity: 0.3;
+  margin: 2rem 0;
+}
+
+ul,
+ol {
+  margin: 1rem 0 1rem 2rem;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
