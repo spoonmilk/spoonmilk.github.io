@@ -10,6 +10,9 @@ export const inspirations = [
     // Name: Claude Shannon
     // Name: Paul Dirac
     // Name: Parisa Safas
+    // Sean Carroll
+    // cre8math
+    // codeparade
     {
         name: "Karl Van Bibber",
         image: "vanbibber.jpg",
