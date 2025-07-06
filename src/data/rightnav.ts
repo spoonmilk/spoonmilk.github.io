@@ -44,13 +44,6 @@ export const inspirations = [
     link: "https://medium.com/@108",
   },
   {
-    name: "Debug debug",
-    alt: "A screenshot of the Debug debug website, which has a black background with white text and a red border. The text reads 'Debug debug' in large letters.",
-    description:
-      "A website that I stumbled upon while looking for a way to make my own website. It has a simple, clean design and is very easy to navigate.",
-    link: "https://debugdebug.com/",
-  },
-  {
     name: "Daniel Shiffman",
     alt: "A photo Daniel Shiffman, creator of The Coding Train. He is a middle-aged white man with a dark, full beard and gentle smile. He is leaning against an old macintosh computer, looking at the photographer.",
     image: "shiffman.jpg",
