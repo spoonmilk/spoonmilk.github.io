@@ -2,28 +2,33 @@ export const pages = [
     {
         label: "Home",
         href: "/",
-        description: "The homepage"
+        description: "Where the heart is"
     },
     {
         label: "About",
         href: "/about",
-        description: "What you might have came for"
+        description: "I'm an open book!"
     },
     {
         label: "Current Doings",
-        href: "/comingsoon",
+        href: "/now",
         description: "A little stalking never hurt anybody."
     },
     {
         label: "Past Doings",
-        href: "/comingsoon",
+        href: "/projects",
         description: "I think I've scared off the recruiters by now."
     },
     {
         label: "Loves, Curiosities",
-        href: "/comingsoon",
+        href: "/loves",
         description: "There is something blossoming inside of me"
     },
+    {
+        label: "Contacting Alex",
+        href: "/contact",
+        description: "Sometimes successful"
+    }
 ];
 
 export const blogs = [

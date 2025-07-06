@@ -62,7 +62,7 @@ pre {
 blockquote {
   margin: 1rem 0;
   padding-left: 1rem;
-  border-left: 4px solid var(--link-color);
+  border-left: 2px solid var(--font-color);
 }
 
 hr {

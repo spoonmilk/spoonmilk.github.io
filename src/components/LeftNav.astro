@@ -7,21 +7,21 @@ const {
   sectionDescriptions = {
     pages: "Places for statements.",
     blogs: "Places for thoughts.",
-    links: "Places beyond."
-  }
+    links: "Places beyond.",
+  },
 } = Astro.props;
 
 // Helper function to ensure items have descriptions
 const ensureDescriptions = (items, sectionType) => {
-  return items.map(item => ({
+  return items.map((item) => ({
     ...item,
-    description: item.description || sectionDescriptions[sectionType]
+    description: item.description || sectionDescriptions[sectionType],
   }));
 };
 
-const pagesWithDescriptions = ensureDescriptions(pages, 'pages');
-const blogsWithDescriptions = ensureDescriptions(blogs, 'blogs');
-const linksWithDescriptions = ensureDescriptions(links, 'links');
+const pagesWithDescriptions = ensureDescriptions(pages, "pages");
+const blogsWithDescriptions = ensureDescriptions(blogs, "blogs");
+const linksWithDescriptions = ensureDescriptions(links, "links");
 ---
 
 <div class="sidebar-container">
@@ -31,79 +31,64 @@ const linksWithDescriptions = ensureDescriptions(links, 'links');
   <div class="nav-description-row">
     <nav class="sidebar-nav">
       <h3>| Index |</h3>
-    <ul>
-      {
-        pagesWithDescriptions.map(
-          (item: {
-            href: string | URL | null | undefined;
-            label: unknown;
-            description?: string;
-          }) => (
-            <li>
-              <a
-                href={item.href}
-                data-description={
-                  item.description
-                }
-              >
-                {item.label}
-              </a>
-            </li>
+      <ul>
+        {
+          pagesWithDescriptions.map(
+            (item: {
+              href: string | URL | null | undefined;
+              label: unknown;
+              description?: string;
+            }) => (
+              <li>
+                <a href={item.href} data-description={item.description}>
+                  {item.label}
+                </a>
+              </li>
+            )
           )
-        )
-      }
-    </ul>
-    <h3>| Blog |</h3>
-    <ul>
-      {
-        blogsWithDescriptions.map(
-          (item: {
-            href: string | URL | null | undefined;
-            label: unknown;
-            description?: string;
-          }) => (
-            <li>
-              <a
-                href={item.href}
-                data-description={
-                  item.description
-                }
-              >
-                {item.label}
-              </a>
-            </li>
+        }
+      </ul>
+      <h3>| Blog |</h3>
+      <ul>
+        {
+          blogsWithDescriptions.map(
+            (item: {
+              href: string | URL | null | undefined;
+              label: unknown;
+              description?: string;
+            }) => (
+              <li>
+                <a href={item.href} data-description={item.description}>
+                  {item.label}
+                </a>
+              </li>
+            )
           )
-        )
-      }
-    </ul>
-    <h3>| Else |</h3>
-    <ul>
-      {
-        linksWithDescriptions.map(
-          (item: {
-            href: string | URL | null | undefined;
-            label: unknown;
-            description?: string;
-          }) => (
-            <li>
-              <a
-                href={item.href}
-                data-description={
-                  item.description
-                }
-              >
-                {item.label}
-              </a>
-            </li>
+        }
+      </ul>
+      <h3>| Else |</h3>
+      <ul>
+        {
+          linksWithDescriptions.map(
+            (item: {
+              href: string | URL | null | undefined;
+              label: unknown;
+              description?: string;
+            }) => (
+              <li>
+                <a href={item.href} data-description={item.description}>
+                  {item.label}
+                </a>
+              </li>
+            )
           )
-        )
-      }
-    </ul>
-  </nav>
-  <div class="divider"></div>
-  <div class="description-column">
-    <p id="link-description">{defaultDescription}</p>
-  </div>
+        }
+      </ul>
+    </nav>
+    <div class="divider"></div>
+    <div class="description-column">
+      <p id="link-description">{defaultDescription}</p>
+    </div>
   </div>
 </div>
 
