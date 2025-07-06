@@ -11,25 +11,25 @@ export const pages = [
     },
     {
         label: "Current Doings",
-        href: "/doing",
+        href: "/comingsoon",
         description: "A little stalking never hurt anybody."
     },
     {
         label: "Past Doings",
-        href: "/dones",
+        href: "/comingsoon",
         description: "I think I've scared off the recruiters by now."
     },
     {
         label: "Loves, Curiosities",
-        href: "/loves",
+        href: "/comingsoon",
         description: "There is something blossoming inside of me"
     },
 ];
 
 export const blogs = [
     {
-        label: "This is gonna be an expandable dropdown",
-        href: "/blog/placeholder",
+        label: "Coming soon",
+        href: "/comingsoon",
         description: "There will be things here, one day."
     }
 ];
@@ -47,7 +47,7 @@ export const links = [
     },
     {
         label: "RSS",
-        href: "/rss.xml",
+        href: "/comingsoon",
         description: "Based."
     }
 ];

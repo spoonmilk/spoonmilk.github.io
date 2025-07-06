@@ -1,79 +1,80 @@
 ---
 import "../styles/global.css";
 import "../styles/fonts.css";
+import {ClientRouter} from 'astro:transitions';
 import TerminalBox from "../components/TerminalBox.astro";
 import LeftNav from "../components/LeftNav.astro";
-import DecorationSidebar from "../components/DecorationSidebar.astro";
+import RightNav from "../components/RightNav.astro";
 import * as rightNavItems from "../data/rightnav.ts";
-import * as navData from "../data/navigation"
+import * as navData from "../data/leftnav";
 
-const {
-  pageTitle,
-  decorTitle = ""
-} = Astro.props;
+const {pageTitle, decorTitle = ""} = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><slot name="title" /></title>
-  </head>
-  <body>
-    <div class="layout">
-      <aside class="sidebar">
-        <TerminalBox />
-        <LeftNav pages={navData.pages} blogs={navData.blogs} links={navData.links} />
-      </aside>
-      <div class="main-area">
+    <ClientRouter/>
+</head>
+<body>
+<div class="layout">
+    <aside class="sidebar" transition:persist>
+        <TerminalBox/>
+        <LeftNav pages={navData.pages} blogs={navData.blogs} links={navData.links}/>
+    </aside>
+    <div class="main-area">
         <div class="content-container">
-          <h1>{pageTitle}</h1>
-          <h2>{decorTitle}</h2>
-          <main class="content"><slot /></main>
+            <h1>{pageTitle}</h1>
+            <h2>{decorTitle}</h2>
+            <main class="content">
+                <slot/>
+            </main>
         </div>
-      </div>
-      <aside class="sidebar">
-        <DecorationSidebar items={rightNavItems.inspirations}, blogs={rightNavItems.collectedBlogs}/>
-      </aside>
     </div>
-  </body>
+    <aside class="sidebar" transition:persist>
+        <RightNav items={rightNavItems.inspirations}/>
+    </aside>
+</div>
+</body>
 </html>
+
 <style>
-  :root {
-    --sidebar-width: 350px;
-  }
+    :root {
+        --sidebar-width: 350px;
+    }
 
-  .layout {
-    overflow: hidden;
-    display: flex;
-    height: 100vh;
-  }
+    .layout {
+        overflow: hidden;
+        display: flex;
+        height: 100vh;
+    }
 
-  .sidebar {
-    width: var(--sidebar-width);
-    flex-shrink: 0;
-    overflow-y: auto;
-    border-right: 1px solid;
-    border-left: 1px solid;
-    padding: 1rem;
-    height: 100%;
-    overflow: hidden;
-  }
+    .sidebar {
+        width: var(--sidebar-width);
+        flex-shrink: 0;
+        border-right: 1px solid;
+        border-left: 1px solid;
+        padding: 1rem;
+        height: 100%;
+        overflow: hidden;
+    }
 
-  .main-area {
-    flex: 1;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .main-area {
+        flex: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .content-container {
-    width: clamp(300px, 60%, 800px);
-    padding: 4rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+    .content-container {
+        width: clamp(300px, 60%, 800px);
+        padding: 4rem;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 </style>

@@ -1,25 +1,31 @@
 ---
-// src/pages/index.astro
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import curls from "../images/curls.png";
 ---
 
 <BaseLayout pageTitle="ALEX KHOSROWSHAHI" decorTitle="">
-    <img
-        src={curls.src}
+    <Image
+        src={curls}
         class="curls"
         alt="A distorted portrait of a young, curly-haired kid, AKA me."
     />
     <p>
         This is the personal website of Alex Khosrowshahi, a second-year
         Computer Science/Physics student at Brown University. On most
-        tech-related sites, I go by the username <mark>spoonmilk</mark>.
+        tech-related sites, I go by the username <b>spoonmilk</b>.
+        <br>
+        <br>
+        This site is largely under construction. It is made with the static site generator
+        <a href="https://astro.build" rel="noreferrer noopener" target="_blank">Astro</a>, which lets me do
+        some fancy client routing stuff. Everything visible to you is plain html and css, muchacho. Blog coming soon.
     </p>
 </BaseLayout>
 
 <style>
     .curls {
         width: 100%;
+        height: auto;
         max-width: 400px;
         display: block;
         margin: 0 auto;
