@@ -47,7 +47,7 @@ export const links = [
     },
     {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/",
+        href: "https://www.linkedin.com/in/alexander-khosrowshahi-17a909298/",
         description: "Professionalism eludes me."
     },
     {

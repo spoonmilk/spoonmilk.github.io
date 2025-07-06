@@ -1,5 +1,12 @@
 export const inspirations = [
     {
+        name: "Adrianne Lenker",
+        image: "adriannelenker.jpg",
+        alt: "Adrianne Lenker, a white woman wearing a cowboy hat and a tank top, leaning against a diner booth and looking at the camera.",
+        description: "My favorite songwriter, the reason I started playing guitar.",
+        link: "https://www.adriannelenker.com/"
+    },
+    {
        name: "Joe Pera",
         image: "joepera.jpg",
         alt: "Joe Pera, a white man with glasses standing next to a red fire hydrant.",
