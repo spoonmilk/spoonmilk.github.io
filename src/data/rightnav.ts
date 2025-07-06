@@ -14,7 +14,7 @@ export const inspirations = [
     // cre8math
     // codeparade
     {
-        name: "Karl Van Bibber",
+        name: "Karl van Bibber",
         image: "vanbibber.jpg",
         description: "I doubt he remembers me, but Professor van Bibber let me into his axion lab back in high school, thus putting me on the winding path towards computational physics.",
         link: "https://nuc.berkeley.edu/people/karl-van-bibber/"
