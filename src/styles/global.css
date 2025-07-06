@@ -1,7 +1,7 @@
 :root {
-    --font-color: #333;
-    --background-color: #E3DBDB;
-    --link-color: #06c;
+  --font-color: #333;
+  --background-color: #e3dbdb;
+  --link-color: #06c;
 }
 
 html,
@@ -10,10 +10,17 @@ body {
   padding: 0;
   height: 100%;
   background-color: var(--background-color);
+  box-sizing: border-box;
   color: var(--font-color);
-  font-family: 'Commit Mono', Courier, monospace;
+  font-family: "Commit Mono", Courier, monospace;
   font-size: 1rem;
   line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 h1 {
@@ -47,7 +54,7 @@ a:hover {
 
 code,
 pre {
-  font-family: 'Commit Mono', Courier, monospace;
+  font-family: "Commit Mono", Courier, monospace;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 0.2em 0.4em;
   border-radius: 3px;
@@ -77,8 +84,3 @@ ol {
   margin: 0 0 1rem 1rem;
 }
 
-button,
-input,
-textarea {
-  font-family: inherit;
-}

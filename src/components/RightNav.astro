@@ -26,13 +26,13 @@ const imageMap: Record<string, ImageMetadata> = Object.fromEntries(
         const imgData = imageMap[fileName];
 
         return (
-          <>
+          <li>
             <div class="horizontal-divider-container">
               <div class="horizontal-divider" />
             </div>
 
             <SubNavItem {...item} image={imgData} />
-          </>
+          </li>
         );
       })
     }
@@ -49,8 +49,8 @@ const imageMap: Record<string, ImageMetadata> = Object.fromEntries(
     flex-direction: column;
     height: 100%;
     text-align: center;
-    overflow: scroll;
     scrollbar-width: none;
+    flex-direction: column;
     -ms-overflow-style: none;
   }
 
