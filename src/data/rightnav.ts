@@ -1,4 +1,21 @@
 export const inspirations = [
+    // {
+    //     name: Alan Guth
+
+    // },
+    // Name: Maryam Mirzakahni
+    // Name: John Carmack
+    // Name: Alan Turing
+    // Name: Murray Gell-Mann
+    // Name: Claude Shannon
+    // Name: Paul Dirac
+    // Name: Parisa Safas
+    {
+        name: "Karl Van Bibber",
+        image: "vanbibber.jpg",
+        description: "I doubt he remembers me, but Professor van Bibber let me into his axion lab back in high school, thus putting me on the winding path towards computational physics.",
+        link: "https://nuc.berkeley.edu/people/karl-van-bibber/"
+    },
     {
         name: "Adrianne Lenker",
         image: "adriannelenker.jpg",
