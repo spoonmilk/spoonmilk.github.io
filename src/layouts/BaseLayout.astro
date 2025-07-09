@@ -182,20 +182,21 @@ const { pageTitle, decorTitle = "" } = Astro.props;
             background: var(--background-color);
             border-top: 1px solid var(--font-color);
             z-index: 1000;
+            color: (--font-color);
         }
         .mobile-nav button {
             flex: 1;
             background: none;
             border: none;
-            font-size: 1.2rem;
+            font-size: 2rem;
             cursor: pointer;
         }
         .mobile-nav button.active {
             border-top: 2px solid var(--link-color);
             font-weight: bold;
+            color: (--link-color);
         }
 
-        /* make sure your content doesn’t get hidden under the nav */
         .content-container {
             padding-bottom: 60px;
         }
