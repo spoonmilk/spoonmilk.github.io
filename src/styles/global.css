@@ -12,7 +12,7 @@ body {
   background-color: var(--background-color);
   box-sizing: border-box;
   color: var(--font-color);
-  font-family: "Commit Mono", Courier, monospace;
+  font-family: "Julia Mono", Courier, monospace;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -54,7 +54,7 @@ a:hover {
 
 code,
 pre {
-  font-family: "Commit Mono", Courier, monospace;
+  font-family: "Julia Mono", Courier, monospace;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 0.2em 0.4em;
   border-radius: 3px;
@@ -83,4 +83,3 @@ ul,
 ol {
   margin: 0 0 1rem 1rem;
 }
-

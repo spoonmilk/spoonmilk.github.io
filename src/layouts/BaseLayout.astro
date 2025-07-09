@@ -56,9 +56,9 @@ const { pageTitle, decorTitle = "" } = Astro.props;
         </div>
 
         <nav class="mobile-nav">
-            <button data-panel="panel-left">West</button>
-            <button data-panel="panel-main" class="active">Home</button>
-            <button data-panel="panel-right">East</button>
+            <button data-panel="panel-left">◧</button>
+            <button data-panel="panel-main" class="active">▣</button>
+            <button data-panel="panel-right">◨</button>
         </nav>
 
         <script is:inline>
@@ -165,6 +165,10 @@ const { pageTitle, decorTitle = "" } = Astro.props;
         }
         .content-container {
             min-width: 100%;
+        }
+        .button {
+            font-size: 3rem;
+            font-weight: bold;
         }
 
         /* bottom nav bar */
