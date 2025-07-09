@@ -12,88 +12,188 @@ const { pageTitle, decorTitle = "" } = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>spoonmilk - {pageTitle}</title>
-    <ClientRouter />
-    <script is:inline>
-    let savedScroll = 0;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>spoonmilk - {pageTitle}</title>
+        <script is:inline>
+            let savedScroll = 0;
 
-    // Before the DOM swap, record where the sidebar was scrolled to
-    document.addEventListener('astro:before-swap', () => {
-      const sidebar = document.getElementById('right-sidebar');
-      if (sidebar) savedScroll = sidebar.scrollTop;
-    });
+            document.addEventListener("astro:before-swap", () => {
+                const sidebar = document.getElementById("panel-right");
+                if (sidebar) savedScroll = sidebar.scrollTop;
+            });
 
-    // After the new page is swapped in, reset its scroll position
-    document.addEventListener('astro:after-swap', () => {
-      const sidebar = document.getElementById('right-sidebar');
-      if (sidebar) sidebar.scrollTop = savedScroll;
-    });
-  </script>
-  </head>
-  <body>
-    <div class="layout">
-      <aside class="sidebar" transition:persist>
-        <TerminalBox />
-        <LeftNav
-          pages={navData.pages}
-          blogs={navData.blogs}
-          links={navData.links}
-        />
-      </aside>
-      <div class="main-area">
-        <div class="content-container">
-          <h1>{pageTitle}</h1>
-          <h2>{decorTitle}</h2>
-          <main class="content">
-            <slot />
-          </main>
+            document.addEventListener("astro:after-swap", () => {
+                const sidebar = document.getElementById("panel-right");
+                if (sidebar) sidebar.scrollTop = savedScroll;
+            });
+        </script>
+    </head>
+    <body>
+        <ClientRouter />
+        <div class="layout">
+            <aside id="panel-left" class="panel sidebar" transition:persist>
+                <TerminalBox />
+                <LeftNav
+                    pages={navData.pages}
+                    blogs={navData.blogs}
+                    links={navData.links}
+                />
+            </aside>
+            <div id="panel-main" class="panel main-area active">
+                <div class="content-container">
+                    <h1>{pageTitle}</h1>
+                    <h2>{decorTitle}</h2>
+                    <main class="content">
+                        <slot />
+                    </main>
+                </div>
+            </div>
+            <aside id="panel-right" class="panel sidebar" transition:persist>
+                <RightNav items={rightNavItems.inspirations} />
+            </aside>
         </div>
-      </div>
-      <aside id="right-sidebar" class="sidebar" transition:persist>
-        <RightNav items={rightNavItems.inspirations} />
-      </aside>
-    </div>
-  </body>
+
+        <nav class="mobile-nav">
+            <button data-panel="panel-left">West</button>
+            <button data-panel="panel-main" class="active">Home</button>
+            <button data-panel="panel-right">East</button>
+        </nav>
+
+        <script is:inline>
+            document.addEventListener("click", (e) => {
+                const tab = e.target.closest(".mobile-nav button");
+                if (tab) {
+                    e.preventDefault();
+                    const panelId = tab.dataset.panel;
+                    document
+                        .querySelectorAll(".panel")
+                        .forEach((p) =>
+                            p.classList.toggle("active", p.id === panelId),
+                        );
+                    document
+                        .querySelectorAll(".mobile-nav button")
+                        .forEach((b) =>
+                            b.classList.toggle("active", b === tab),
+                        );
+                    return;
+                }
+                if (
+                    e.target.closest("#panel-left a") &&
+                    window.matchMedia("(max-width:600px)").matches
+                ) {
+                    document
+                        .querySelector(
+                            '.mobile-nav button[data-panel="panel-main"]',
+                        )
+                        .click();
+                }
+            });
+        </script>
+    </body>
 </html>
 
 <style>
-  :root {
-    --sidebar-width: 350px;
-  }
+    :root {
+        --sidebar-width: 350px;
+    }
 
-  .layout {
-    display: flex;
-    height: 100vh;
-  }
+    .layout {
+        display: flex;
+        height: 100vh;
+    }
 
-  .sidebar {
-    width: var(--sidebar-width);
-    flex-shrink: 0;
-    border-right: 1px solid;
-    border-left: 1px solid;
-    padding: 1rem;
-    overflow-y: auto;
-  }
+    .sidebar {
+        width: var(--sidebar-width);
+        flex-shrink: 0;
+        border-right: 1px solid;
+        border-left: 1px solid;
+        padding: 1rem;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
 
-  .main-area {
-    flex: 1;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
+    .main-area {
+        flex: 1;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
 
-  .content-container {
-    width: clamp(400px, 60%, 800px);
-    padding: 4rem;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+    .content-container {
+        width: clamp(400px, 60%, 800px);
+        padding: 4rem;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    /* Mobile-only settings - turn panels into main views */
+    @media (max-width: 600px) {
+        /* hide the three‐column layout entirely */
+        .layout {
+            display: block;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        /* panels take full width/height (minus nav bar), but are all hidden by default */
+        .panel {
+            display: none;
+            width: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            height: calc(100vh - 50px);
+            overflow-y: auto;
+            margin: 0;
+        }
+        .panel.active {
+            display: block;
+        }
+        .sidebar {
+            min-width: 100%;
+        }
+        .content-container {
+            min-width: 100%;
+        }
+
+        /* bottom nav bar */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            display: flex;
+            background: var(--background-color);
+            border-top: 1px solid var(--font-color);
+            z-index: 1000;
+        }
+        .mobile-nav button {
+            flex: 1;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .mobile-nav button.active {
+            border-top: 2px solid var(--link-color);
+            font-weight: bold;
+        }
+
+        /* make sure your content doesn’t get hidden under the nav */
+        .content-container {
+            padding-bottom: 60px;
+        }
+    }
 </style>
