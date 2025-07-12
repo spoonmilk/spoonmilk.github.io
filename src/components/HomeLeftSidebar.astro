@@ -1,0 +1,17 @@
+---
+import Sidebar from "./Sidebar.astro";
+import LeftNav from "./LeftNav.astro";
+import TerminalBox from "./TerminalBox.astro";
+
+import * as navData from "../data/leftnav";
+---
+
+<!-- Sidebar displayed on left of all normal pages -->
+<Sidebar>
+    <TerminalBox />
+    <LeftNav
+        pages={navData.pages}
+        blogs={navData.blogs}
+        links={navData.links}
+    />
+</Sidebar>

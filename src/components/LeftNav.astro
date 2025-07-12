@@ -1,22 +1,22 @@
 ---
 const {
-  pages = [],
-  blogs = [],
-  links = [],
-  defaultDescription = "Sometimes I wonder what I'm doing here.",
-  sectionDescriptions = {
-    pages: "Places for statements.",
-    blogs: "Places for thoughts.",
-    links: "Places beyond.",
-  },
+    pages = [],
+    blogs = [],
+    links = [],
+    defaultDescription = "Sometimes I wonder what I'm doing here.",
+    sectionDescriptions = {
+        pages: "Places for statements.",
+        blogs: "Places for thoughts.",
+        links: "Places beyond.",
+    },
 } = Astro.props;
 
 // Helper function to ensure items have descriptions
 const ensureDescriptions = (items, sectionType) => {
-  return items.map((item) => ({
-    ...item,
-    description: item.description || sectionDescriptions[sectionType],
-  }));
+    return items.map((item) => ({
+        ...item,
+        description: item.description || sectionDescriptions[sectionType],
+    }));
 };
 
 const pagesWithDescriptions = ensureDescriptions(pages, "pages");
@@ -25,166 +25,176 @@ const linksWithDescriptions = ensureDescriptions(links, "links");
 ---
 
 <div class="sidebar-container">
-  <div class="horizontal-divider-container">
-    <div class="horizontal-divider"></div>
-  </div>
-  <div class="nav-description-row">
-    <nav class="sidebar-nav">
-      <h3>| Index |</h3>
-      <ul>
-        {
-          pagesWithDescriptions.map(
-            (item: {
-              href: string | URL | null | undefined;
-              label: unknown;
-              description?: string;
-            }) => (
-              <li>
-                <a href={item.href} data-description={item.description}>
-                  {item.label}
-                </a>
-              </li>
-            )
-          )
-        }
-      </ul>
-      <h3>| Blog |</h3>
-      <ul>
-        {
-          blogsWithDescriptions.map(
-            (item: {
-              href: string | URL | null | undefined;
-              label: unknown;
-              description?: string;
-            }) => (
-              <li>
-                <a href={item.href} data-description={item.description}>
-                  {item.label}
-                </a>
-              </li>
-            )
-          )
-        }
-      </ul>
-      <h3>| Else |</h3>
-      <ul>
-        {
-          linksWithDescriptions.map(
-            (item: {
-              href: string | URL | null | undefined;
-              label: unknown;
-              description?: string;
-            }) => (
-              <li>
-                <a href={item.href} data-description={item.description}>
-                  {item.label}
-                </a>
-              </li>
-            )
-          )
-        }
-      </ul>
-    </nav>
-    <div class="divider"></div>
-    <div class="description-column">
-      <p id="link-description">{defaultDescription}</p>
+    <div class="horizontal-divider-container">
+        <div class="horizontal-divider"></div>
     </div>
-  </div>
+    <div class="nav-description-row">
+        <nav class="sidebar-nav">
+            <h3>| Index |</h3>
+            <ul>
+                {
+                    pagesWithDescriptions.map(
+                        (item: {
+                            href: string | URL | null | undefined;
+                            label: unknown;
+                            description?: string;
+                        }) => (
+                            <li>
+                                <a
+                                    href={item.href}
+                                    data-description={item.description}
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ),
+                    )
+                }
+            </ul>
+            <h3>| Blog |</h3>
+            <ul>
+                {
+                    blogsWithDescriptions.map(
+                        (item: {
+                            href: string | URL | null | undefined;
+                            label: unknown;
+                            description?: string;
+                        }) => (
+                            <li>
+                                <a
+                                    href={item.href}
+                                    data-description={item.description}
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ),
+                    )
+                }
+            </ul>
+            <h3>| Else |</h3>
+            <ul>
+                {
+                    linksWithDescriptions.map(
+                        (item: {
+                            href: string | URL | null | undefined;
+                            label: unknown;
+                            description?: string;
+                        }) => (
+                            <li>
+                                <a
+                                    href={item.href}
+                                    data-description={item.description}
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ),
+                    )
+                }
+            </ul>
+        </nav>
+        <div class="divider"></div>
+        <div class="description-column">
+            <p id="link-description">{defaultDescription}</p>
+        </div>
+    </div>
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const description = document.getElementById("link-description");
-    const defaultText =
-      description?.textContent || "Hover over a link to see what's there";
+    document.addEventListener("DOMContentLoaded", () => {
+        const description = document.getElementById("link-description");
+        const defaultText =
+            description?.textContent || "Hover over a link to see what's there";
 
-    document.querySelectorAll(".sidebar-nav a").forEach((link) => {
-      link.addEventListener("mouseenter", () => {
-        if (description) {
-          description.style.opacity = "0";
-          setTimeout(() => {
-            description.textContent = link.getAttribute("data-description");
-            description.style.opacity = "1";
-          }, 300);
-        }
-      });
+        document.querySelectorAll(".sidebar-nav a").forEach((link) => {
+            link.addEventListener("mouseenter", () => {
+                if (description) {
+                    description.style.opacity = "0";
+                    setTimeout(() => {
+                        description.textContent =
+                            link.getAttribute("data-description");
+                        description.style.opacity = "1";
+                    }, 300);
+                }
+            });
 
-      link.addEventListener("mouseleave", () => {
-        if (description) {
-          description.style.opacity = "0";
+            link.addEventListener("mouseleave", () => {
+                if (description) {
+                    description.style.opacity = "0";
 
-          setTimeout(() => {
-            description.textContent = defaultText;
-            description.style.opacity = "1";
-          }, 300);
-        }
-      });
+                    setTimeout(() => {
+                        description.textContent = defaultText;
+                        description.style.opacity = "1";
+                    }, 300);
+                }
+            });
+        });
     });
-  });
 </script>
 
 <style>
-  .sidebar-container {
-    display: flex;
-    gap: 1rem;
-    align-items: stretch;
-    flex-direction: column;
-    height: 100%;
-  }
+    .sidebar-container {
+        display: flex;
+        gap: 1rem;
+        align-items: stretch;
+        flex-direction: column;
+        height: 100%;
+    }
 
-  .horizontal-divider-container {
-    width: 100%;
-    display: flex;
-    position: relative;
-    z-index: 10;
-  }
+    .horizontal-divider-container {
+        width: 100%;
+        display: flex;
+        position: relative;
+        z-index: 10;
+    }
 
-  .horizontal-divider {
-    width: 100%;
-    border-top: 2px dashed;
-    margin: 0.5rem 0;
-  }
+    .horizontal-divider {
+        width: 100%;
+        border-top: 2px dashed;
+        margin: 0.5rem 0;
+    }
 
-  .nav-description-row {
-    display: flex;
-    flex: 1;
-    gap: 1rem;
-    overflow: hidden;
-  }
+    .nav-description-row {
+        display: flex;
+        flex: 1;
+        gap: 1rem;
+        overflow: hidden;
+    }
 
-  .sidebar-nav {
-    flex: 1;
-    overflow-y: auto;
-    height: 100%;
-    min-height: 0;
-  }
+    .sidebar-nav {
+        flex: 1;
+        overflow-y: auto;
+        height: 100%;
+        min-height: 0;
+    }
 
-  .divider {
-    width: 0;
-    border-left: 2px dashed;
-    height: 100%;
-    align-self: stretch;
-    margin: 0 0.5rem;
-  }
+    .divider {
+        width: 0;
+        border-left: 2px dashed;
+        height: 100%;
+        align-self: stretch;
+        margin: 0 0.5rem;
+    }
 
-  .description-column {
-    flex: 1;
-    font-size: 0.9rem;
-    color: var(--font-color);
-    line-height: 1.4;
-  }
+    .description-column {
+        flex: 1;
+        font-size: 0.9rem;
+        color: var(--font-color);
+        line-height: 1.4;
+    }
 
-  #link-description {
-    transition: opacity 0.3s ease-in-out;
-  }
+    #link-description {
+        transition: opacity 0.3s ease-in-out;
+    }
 
-  .sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    .sidebar-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-  .sidebar-nav li + li {
-    margin-top: 0.5rem;
-  }
+    .sidebar-nav li + li {
+        margin-top: 0.5rem;
+    }
 </style>

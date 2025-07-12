@@ -1,85 +1,91 @@
 :root {
-  --font-color: #333;
-  --background-color: #e3dbdb;
-  --link-color: #06c;
+    --font-color: #333;
+    --background-color: #e3dbdb;
+    --link-color: #06c;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: var(--background-color);
-  box-sizing: border-box;
-  color: var(--font-color);
-  font-family: "Julia Mono", Courier, monospace;
-  font-size: 1rem;
-  line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--background-color);
+    box-sizing: border-box;
+    color: var(--font-color);
+    font-family: "Julia Mono", Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0.5rem auto;
-  align-self: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem auto;
+    align-self: center;
 }
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
-  margin: 0.5rem auto;
+    font-weight: 700;
+    margin: 0.5rem auto;
 }
 
 p {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 a {
-  color: var(--link-color);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--link-color);
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--link-color);
 }
 
 a:hover {
-  border-bottom-style: solid;
+    border-bottom-style: solid;
 }
 
 code,
 pre {
-  font-family: "Julia Mono", Courier, monospace;
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
+    font-family: "Julia Mono", Courier, monospace;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
 }
 
 pre {
-  overflow-x: auto;
-  padding: 1rem;
-  margin-bottom: 1rem;
+    overflow-x: auto;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 blockquote {
-  margin: 1rem 0;
-  padding-left: 1rem;
-  border-left: 2px solid var(--font-color);
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--font-color);
 }
 
 hr {
-  border: none;
-  border-top: 1px solid var(--font-color);
-  opacity: 0.3;
-  margin: 2rem 0;
+    border: none;
+    border-top: 1px solid var(--font-color);
+    opacity: 0.3;
+    margin: 2rem 0;
 }
 
 ul,
 ol {
-  margin: 0 0 1rem 1rem;
+    margin: 0 0 1rem 1rem;
+}
+
+b {
+    font-family: "Julia Mono Bold", courier, monospace;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }

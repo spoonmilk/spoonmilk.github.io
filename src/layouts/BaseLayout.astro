@@ -1,14 +1,12 @@
 ---
-import "../styles/global.css";
-import "../styles/fonts.css";
 import { ClientRouter } from "astro:transitions";
-import TerminalBox from "../components/TerminalBox.astro";
-import LeftNav from "../components/LeftNav.astro";
+import HomeLeftSidebar from "../components/HomeLeftSidebar.astro";
+import HomeRightSidebar from "../components/HomeRightSidebar.astro";
 import RightNav from "../components/RightNav.astro";
-import * as rightNavItems from "../data/rightnav.ts";
-import * as navData from "../data/leftnav";
+import "../styles/fonts.css";
+import "../styles/global.css";
 
-const { pageTitle, decorTitle = "" } = Astro.props;
+const { pageTitle = "" } = Astro.props;
 ---
 
 <html lang="en">
@@ -33,26 +31,20 @@ const { pageTitle, decorTitle = "" } = Astro.props;
     <body>
         <ClientRouter />
         <div class="layout">
-            <aside id="panel-left" class="panel sidebar" transition:persist>
-                <TerminalBox />
-                <LeftNav
-                    pages={navData.pages}
-                    blogs={navData.blogs}
-                    links={navData.links}
-                />
-            </aside>
+            <HomeLeftSidebar
+                id="panel-left"
+                class="panel sidebar"
+                transition:persist
+            />
             <div id="panel-main" class="panel main-area active">
                 <div class="content-container">
                     <h1>{pageTitle}</h1>
-                    <h2>{decorTitle}</h2>
                     <main class="content">
                         <slot />
                     </main>
                 </div>
             </div>
-            <aside id="panel-right" class="panel sidebar" transition:persist>
-                <RightNav items={rightNavItems.inspirations} />
-            </aside>
+            <HomeRightSidebar id="panel-right" />
         </div>
 
         <nav class="mobile-nav">
