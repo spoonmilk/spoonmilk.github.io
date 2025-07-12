@@ -5,33 +5,26 @@ import curls from "../assets/images/curls.png";
 ---
 
 <BaseLayout pageTitle="ALEX KHOSROWSHAHI" decorTitle="">
-  <Image
-    src={curls}
-    class="curls"
-    loading="eager"
-    alt="A distorted portrait of a young, curly-haired kid, AKA me."
-  />
-  <p>
-    This is the personal website of Alex Khosrowshahi, a second-year Computer
-    Science/Physics student at Brown University. On most tech-related sites, I
-    go by the username <b>spoonmilk</b>.
-    <br />
-    <br />
-    This site is still largely under construction. It is made with the static site
-    generator
-    <a href="https://astro.build" rel="noreferrer noopener" target="_blank"
-      >Astro</a
-    >, the font is Julia Mono (look at this ∮ ⊷ unicode ⋋ 〄 support!). Blog coming soon.
-  </p>
-</BaseLayout>
+    <Image
+        src={curls}
+        class="curls"
+        loading="eager"
+        alt="A distorted portrait of a young, curly-haired kid, AKA me."
+    />
+    <p>
+        This is the personal website of Alex Khosrowshahi, a second-year
+        Computer Science/Physics student at Brown University. On most
+        tech-related sites, I go by the username <b>spoonmilk</b>.
+    </p>
 
-<style>
-  .curls {
-    width: 100%;
-    height: auto;
-    max-width: 400px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
-  }
-</style>
+    <style>
+        .curls {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+    </style>
+</BaseLayout>
