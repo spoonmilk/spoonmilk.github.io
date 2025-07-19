@@ -2,49 +2,49 @@
 import { Image } from "astro:assets";
 
 const {
-  image = "",
-  alt = "",
-  link = "",
-  name = "",
-  description = "",
+    image = "",
+    alt = "",
+    link = "",
+    name = "",
+    description = "",
 } = Astro.props;
 ---
 
 <div class="item-container">
-  {
-    image && (
-      <Image
-        src={image}
-        alt={alt}
-        sizes="90vw"
-        widths={[300, 600]}
-        class="subnav-image"
-        loading="eager"
-        decoding="async"
-      />
-    )
-  }
-  <a href={link} target="_blank" rel="noreferrer noopener">{name}</a>
-  <p>{description}</p>
+    {
+        image && (
+            <Image
+                src={image}
+                alt={alt}
+                sizes="90vw"
+                widths={[300, 600]}
+                class="subnav-image"
+                loading="eager"
+                decoding="async"
+            />
+        )
+    }
+    <a href={link} target="_blank" rel="noreferrer noopener">{name}</a>
+    <p>{description}</p>
 </div>
 
 <style>
-  .item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 90%;
-  }
+    .item-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 90%;
+    }
 
-  img {
-    width: 90%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 4px;
-  }
+    img {
+        width: 90%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 4px;
+    }
 
-  .subnav-image {
-    border-radius: 4px;
-  }
+    .subnav-image {
+        border-radius: 4px;
+    }
 </style>

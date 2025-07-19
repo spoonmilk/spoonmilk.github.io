@@ -1,0 +1,10 @@
+---
+import Sidebar from "./Sidebar.astro";
+import RightNav from "./RightNav.astro";
+import * as rightNavItems from "../data/rightnav.ts";
+const { class: className, id: myId, ...rest } = Astro.props;
+---
+
+<Sidebar class={className} id={myId} {...rest}>
+    <RightNav items={rightNavItems.inspirations} />
+</Sidebar>

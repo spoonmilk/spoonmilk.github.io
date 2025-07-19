@@ -5,82 +5,81 @@ import type { ImageMetadata } from "astro";
 const { items = [] } = Astro.props;
 
 const modules = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/inspirations/*.{jpg,png}",
-  { eager: true }
+    "../assets/inspirations/*.{jpg,png}",
+    { eager: true },
 );
 
 const imageMap: Record<string, ImageMetadata> = Object.fromEntries(
-  Object.entries(modules).map(([path, m]) => {
-    const fileName = path.split("/").pop()!;
-    return [fileName, m.default];
-  })
+    Object.entries(modules).map(([path, m]) => {
+        const fileName = path.split("/").pop()!;
+        return [fileName, m.default];
+    }),
 );
 ---
 
 <div class="right-nav">
-  <h3>Assorted Inspirations</h3>
-  <ul>
-    {
-      items.map((item) => {
-        const fileName = item.image?.split("/").pop()!;
-        const imgData = imageMap[fileName];
+    <h3>Assorted Inspirations</h3>
+    <ul>
+        {
+            items.map((item) => {
+                const fileName = item.image?.split("/").pop()!;
+                const imgData = imageMap[fileName];
 
-        return (
-          <li>
-            <div class="horizontal-divider-container">
-              <div class="horizontal-divider" />
-            </div>
+                return (
+                    <li>
+                        <div class="horizontal-divider-container">
+                            <div class="horizontal-divider" />
+                        </div>
 
-            <SubNavItem {...item} image={imgData} />
-          </li>
-        );
-      })
-    }
-  </ul>
-  <div class="horizontal-divider-container">
-    <div class="horizontal-divider"></div>
-  </div>
+                        <SubNavItem {...item} image={imgData} />
+                    </li>
+                );
+            })
+        }
+    </ul>
+    <div class="horizontal-divider-container">
+        <div class="horizontal-divider"></div>
+    </div>
 </div>
 
 <style>
-  .right-nav {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    scrollbar-width: none;
-    flex-direction: column;
-    -ms-overflow-style: none;
-  }
+    .right-nav {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        scrollbar-width: none;
+        flex-direction: column;
+        -ms-overflow-style: none;
+    }
 
-  .horizontal-divider-container {
-    width: 100%;
-    display: flex;
-    position: relative;
-    z-index: 10;
-    padding: 1rem 0;
-  }
+    .horizontal-divider-container {
+        width: 100%;
+        display: flex;
+        position: relative;
+        z-index: 10;
+        padding: 1rem 0;
+    }
 
-  .horizontal-divider {
-    width: 100%;
-    border-top: 2px dashed;
-    margin: 0.5rem 0;
-  }
+    .horizontal-divider {
+        width: 100%;
+        border-top: 2px dashed;
+        margin: 0.5rem 0;
+    }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 </style>

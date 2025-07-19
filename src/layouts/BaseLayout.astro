@@ -1,14 +1,11 @@
 ---
 import "../styles/global.css";
 import "../styles/fonts.css";
+import HomeLeftSidebar from "../components/HomeLeftSidebar.astro";
+import HomeRightSidebar from "../components/HomeRightSidebar.astro";
 import { ClientRouter } from "astro:transitions";
-import TerminalBox from "../components/TerminalBox.astro";
-import LeftNav from "../components/LeftNav.astro";
-import RightNav from "../components/RightNav.astro";
-import * as rightNavItems from "../data/rightnav.ts";
-import * as navData from "../data/leftnav";
 
-const { pageTitle, decorTitle = "" } = Astro.props;
+const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -18,12 +15,10 @@ const { pageTitle, decorTitle = "" } = Astro.props;
         <title>spoonmilk - {pageTitle}</title>
         <script is:inline>
             let savedScroll = 0;
-
             document.addEventListener("astro:before-swap", () => {
                 const sidebar = document.getElementById("panel-right");
                 if (sidebar) savedScroll = sidebar.scrollTop;
             });
-
             document.addEventListener("astro:after-swap", () => {
                 const sidebar = document.getElementById("panel-right");
                 if (sidebar) sidebar.scrollTop = savedScroll;
@@ -33,26 +28,24 @@ const { pageTitle, decorTitle = "" } = Astro.props;
     <body>
         <ClientRouter />
         <div class="layout">
-            <aside id="panel-left" class="panel sidebar" transition:persist>
-                <TerminalBox />
-                <LeftNav
-                    pages={navData.pages}
-                    blogs={navData.blogs}
-                    links={navData.links}
-                />
-            </aside>
+            <HomeLeftSidebar
+                class="panel sidebar"
+                id="panel-left"
+                transition:persist
+            />
             <div id="panel-main" class="panel main-area active">
                 <div class="content-container">
                     <h1>{pageTitle}</h1>
-                    <h2>{decorTitle}</h2>
                     <main class="content">
                         <slot />
                     </main>
                 </div>
             </div>
-            <aside id="panel-right" class="panel sidebar" transition:persist>
-                <RightNav items={rightNavItems.inspirations} />
-            </aside>
+            <HomeRightSidebar
+                class="panel sidebar"
+                id="panel-right"
+                transition:persist
+            />
         </div>
 
         <nav class="mobile-nav">
@@ -67,11 +60,9 @@ const { pageTitle, decorTitle = "" } = Astro.props;
                 if (tab) {
                     e.preventDefault();
                     const panelId = tab.dataset.panel;
-                    document
-                        .querySelectorAll(".panel")
-                        .forEach((p) =>
-                            p.classList.toggle("active", p.id === panelId),
-                        );
+                    document.querySelectorAll(".panel").forEach((p) => {
+                        p.classList.toggle("active", p.id === panelId);
+                    });
                     document
                         .querySelectorAll(".mobile-nav button")
                         .forEach((b) =>
@@ -104,17 +95,6 @@ const { pageTitle, decorTitle = "" } = Astro.props;
         height: 100vh;
     }
 
-    .sidebar {
-        width: var(--sidebar-width);
-        flex-shrink: 0;
-        border-right: 1px solid;
-        border-left: 1px solid;
-        padding: 1rem;
-        overflow-y: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
     .main-area {
         flex: 1;
         overflow-y: auto;
@@ -138,7 +118,7 @@ const { pageTitle, decorTitle = "" } = Astro.props;
         display: none;
     }
 
-    /* Mobile-only settings - turn panels into main views */
+    /* mobile-only settings - turn panels into main views */
     @media (max-width: 600px) {
         /* hide the three‐column layout entirely */
         .layout {
@@ -148,7 +128,7 @@ const { pageTitle, decorTitle = "" } = Astro.props;
         }
 
         /* panels take full width/height (minus nav bar), but are all hidden by default */
-        .panel {
+        :global(.panel) {
             display: none;
             width: 100%;
             min-width: 100%;
@@ -156,10 +136,10 @@ const { pageTitle, decorTitle = "" } = Astro.props;
             overflow-y: scroll;
             margin: 0;
         }
-        .panel.active {
+        :global(.panel.active) {
             display: block;
         }
-        .sidebar {
+        :global(.sidebar) {
             min-width: 100%;
         }
         .content-container {

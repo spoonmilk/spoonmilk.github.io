@@ -1,0 +1,20 @@
+---
+const { class: className, id: idType, ...rest } = Astro.props;
+---
+
+<aside class={className} id={idType} {...rest}>
+    <slot />
+</aside>
+
+<style>
+    .sidebar {
+        width: var(--sidebar-width);
+        flex-shrink: 0;
+        border-right: 1px solid;
+        border-left: 1px solid;
+        padding: 1rem;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+</style>

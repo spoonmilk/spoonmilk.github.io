@@ -1,0 +1,16 @@
+---
+import Sidebar from "./Sidebar.astro";
+import LeftNav from "./LeftNav.astro";
+import TerminalBox from "./TerminalBox.astro";
+import * as navData from "../data/leftnav";
+const { class: className, id: myId, ...rest } = Astro.props;
+---
+
+<Sidebar class={className} id={myId} {...rest}>
+    <TerminalBox />
+    <LeftNav
+        pages={navData.pages}
+        blogs={navData.blogs}
+        links={navData.links}
+    />
+</Sidebar>
