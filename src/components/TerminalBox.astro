@@ -1,56 +1,56 @@
 ---
 import "../styles/fonts.css";
 const banners = [
-  ` 
- ::::::::  :::::::::   ::::::::   ::::::::  ::::    ::: 
-:+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:+:   :+: 
-+:+        +:+    +:+ +:+    +:+ +:+    +:+ :+:+:+  +:+ 
-+#++:++#++ +#++:++#+  +#+    +:+ +#+    +:+ +#+ +:+ +#+ 
-       +#+ +#+        +#+    +#+ +#+    +#+ +#+  +#+#+# 
-#+#    #+# #+#        #+#    #+# #+#    #+# #+#   #+#+# 
- ########  ###         ########   ########  ###    #### 
-::::    ::::  ::::::::::: :::        :::    :::         
-+:+:+: :+:+:+     :+:     :+:        :+:   :+:          
-+:+ +:+:+ +:+     +:+     +:+        +:+  +:+           
-+#+  +:+  +#+     +#+     +#+        +#++:++            
-+#+       +#+     +#+     +#+        +#+  +#+           
-#+#       #+#     #+#     #+#        #+#   #+#          
-###       ### ########### ########## ###    ###         
+    `
+ ::::::::  :::::::::   ::::::::   ::::::::  ::::    :::
+:+:    :+: :+:    :+: :+:    :+: :+:    :+: :+:+:   :+:
++:+        +:+    +:+ +:+    +:+ +:+    +:+ :+:+:+  +:+
++#++:++#++ +#++:++#+  +#+    +:+ +#+    +:+ +#+ +:+ +#+
+       +#+ +#+        +#+    +#+ +#+    +#+ +#+  +#+#+#
+#+#    #+# #+#        #+#    #+# #+#    #+# #+#   #+#+#
+ ########  ###         ########   ########  ###    ####
+::::    ::::  ::::::::::: :::        :::    :::
++:+:+: :+:+:+     :+:     :+:        :+:   :+:
++:+ +:+:+ +:+     +:+     +:+        +:+  +:+
++#+  +:+  +#+     +#+     +#+        +#++:++
++#+       +#+     +#+     +#+        +#+  +#+
+#+#       #+#     #+#     #+#        #+#   #+#
+###       ### ########### ########## ###    ###
 `,
 ];
 const banner = banners[Math.floor(Math.random() * banners.length)];
 ---
 
 <div class="terminal-box">
-  <pre id="terminal-text">{banner}</pre>
+    <pre id="terminal-text">{banner}</pre>
 </div>
 
 <style>
-  .terminal-box {
-    background: #000;
-    color: #ffc133;
-    font-family: "Commit Mono", monospace;
-    font-size: 8px;
-    padding: 1rem;
-    border: 1px solid #333;
-    border-radius: 4px;
-    overflow: hidden;
-    width: auto;
-    justify-content: center;
-    justify-items: center;
-    min-height: 200px;
-    margin-bottom: 1rem;
-    flex-shrink: 0;
-  }
-  #terminal-text {
-    margin: 0;
-    display: inline-block;
-    text-shadow:
-      0 0 5px #ffb000,
-      0 0 10px #ffb000,
-      0 0 15px #ffb000;
-  }
-  #terminal-cursor {
-    display: inline-block;
-  }
+    .terminal-box {
+        background: #000;
+        color: #ffc133;
+        font-family: "Commit Mono", monospace;
+        font-size: 8px;
+        padding: 1rem;
+        border: 1px solid #333;
+        border-radius: 4px;
+        overflow: hidden;
+        width: auto;
+        justify-content: center;
+        justify-items: center;
+        min-height: 200px;
+        margin-bottom: 1rem;
+        flex-shrink: 0;
+    }
+    #terminal-text {
+        margin: 0;
+        display: inline-block;
+        text-shadow:
+            0 0 5px #ffb000,
+            0 0 10px #ffb000,
+            0 0 15px #ffb000;
+    }
+    #terminal-cursor {
+        display: inline-block;
+    }
 </style>

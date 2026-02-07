@@ -1,16 +1,15 @@
 @font-face {
-  font-family: "Commit Mono";
-  src: url("/fonts/CommitMonoVariableFont.woff2") format("woff2");
-  font-weight: 100 900;
-  font-stretch: 75% 125%;
-  font-style: normal;
+    font-family: "Commit Mono";
+    src: url("/fonts/CommitMonoVariableFont.woff2") format("woff2");
+    font-weight: 100 900;
+    font-stretch: 75% 125%;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Julia Mono";
-  src: url("/fonts/JuliaMono-Regular.woff2") format("woff2");
-  font-weight: 100 900;
-  font-stretch: 75% 125%;
-  font-style: normal;
+    font-family: "Julia Mono";
+    src: url("/fonts/JuliaMono-Regular.woff2") format("woff2");
+    font-weight: 100 900;
+    font-stretch: 75% 125%;
+    font-style: normal;
 }
-
